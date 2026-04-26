@@ -1,0 +1,143 @@
+.features-container {
+  padding: 100px 20px;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+}
+
+.features-wrapper {
+  max-width: 1400px;
+  width: 100%;
+  padding: 0 40px;
+}
+
+.features-header {
+  text-align: center;
+  margin-bottom: 80px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.features-subtitle {
+  color: var(--primary-green);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.features-title {
+  font-size: 3rem;
+  color: var(--dark-green);
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.features-description {
+  font-size: 1.15rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* Grid Layout */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Feature Card Styling */
+.feature-card {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid #f3f4f6;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  border-color: var(--light-green);
+}
+
+.feature-icon-box {
+  width: 60px;
+  height: 60px;
+  background: var(--light-green);
+  color: var(--primary-green);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon-box {
+  background: var(--primary-green);
+  color: var(--white);
+  transform: rotate(10deg);
+}
+
+.feature-card-title {
+  font-size: 1.4rem;
+  color: var(--dark-green);
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.feature-card-text {
+  color: #6b7280;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Animated Bottom Border Effect */
+.feature-card-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: var(--primary-green);
+  transition: width 0.4s ease;
+}
+
+.feature-card:hover .feature-card-border {
+  width: 100%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .features-container {
+    padding: 60px 20px;
+  }
+
+  .features-wrapper {
+    padding: 0 10px;
+  }
+
+  .features-title {
+    font-size: 2.2rem;
+  }
+
+  .feature-card {
+    padding: 30px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .feature-icon-box {
+    margin-inline: auto;
+  }
+}

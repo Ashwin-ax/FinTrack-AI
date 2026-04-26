@@ -1,0 +1,78 @@
+.budget-summary-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.summary-card {
+  background: white;
+  padding: 24px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.05);
+}
+
+/* Different Icon Colors for visual hierarchy */
+.summary-icon-box {
+  font-size: 2rem;
+  padding: 12px;
+  border-radius: 16px;
+  background: #f0fdf4; /* Light Green */
+  color: #10b981; /* Emerald Green */
+  display: flex;
+}
+
+.summary-icon-box.blue {
+  background: #eff6ff;
+  color: #3b82f6;
+}
+
+.summary-icon-box.orange {
+  background: #fff7ed;
+  color: #f97316;
+}
+
+/* The Highlight Card (Safe to Spend) */
+.summary-card.highlight {
+  border: 2px solid #10b981;
+  background: linear-gradient(to bottom right, #ffffff, #f0fdf4);
+}
+
+.summary-details span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.summary-details h3 {
+  font-size: 1.75rem;
+  color: #0f172a;
+  margin: 4px 0;
+  font-weight: 800;
+}
+
+.summary-details p {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .budget-summary-container {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,90 @@
+/* --- MOBILE FIRST (Default) --- */
+.notfound-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #f8fafc; /* Matches dashboard background */
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.notfound-content {
+  max-width: 400px;
+  width: 100%;
+}
+
+.error-icon {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.error-code {
+  font-size: 5rem;
+  font-weight: 900;
+  color: #0f172a; /* High contrast dark slate */
+  margin: 0;
+  line-height: 1;
+}
+
+.error-title {
+  font-size: 1.5rem;
+  color: #1e293b;
+  margin: 12px 0;
+  font-weight: 700;
+}
+
+.error-message {
+  color: #64748b;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.back-home-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px;
+  background-color: #0f172a;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.back-home-btn:hover {
+  background-color: #1e293b;
+  transform: translateY(-2px);
+}
+
+/* --- DESKTOP ADAPTATION --- */
+@media (min-width: 768px) {
+  .error-code {
+    font-size: 8rem;
+  }
+
+  .error-title {
+    font-size: 2rem;
+  }
+
+  .notfound-content {
+    max-width: 500px;
+  }
+
+  .back-home-btn {
+    width: auto;
+    padding: 14px 32px;
+    margin: 0 auto;
+  }
+}

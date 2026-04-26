@@ -1,0 +1,153 @@
+:root {
+  --primary-green: #10b981;
+  --dark-green: #064e3b;
+  --light-green: #ecfdf5;
+  --text-main: #1f2937;
+  --white: #ffffff;
+  --transition: all 0.3s ease;
+}
+
+.navbar {
+  height: 80px;
+  background: var(--white);
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between; /* Pushes Logo to left, Wrapper to right */
+  align-items: center;
+  width: 100%;
+  max-width: 1400px; /* Increased width for a more expansive look */
+  padding: 0 40px; /* Moderate side margins */
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark-green);
+  cursor: pointer;
+}
+
+.logo-icon {
+  color: var(--primary-green);
+  margin-right: 8px;
+}
+
+.text-highlight {
+  color: var(--primary-green);
+}
+
+/* Right-side Wrapper for Links and Buttons */
+.nav-menu-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Space between the Link list and the Buttons */
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px; /* Tightened gap between links */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 500;
+  transition: var(--transition);
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+  color: var(--primary-green);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-login {
+  background: transparent;
+  border: 1px solid var(--primary-green);
+  color: var(--primary-green);
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-signup {
+  background: var(--primary-green);
+  border: none;
+  color: var(--white);
+  padding: 9px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-signup:hover {
+  background: var(--dark-green);
+}
+
+.mobile-menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  color: var(--dark-green);
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 960px) {
+  .nav-container {
+    padding: 0 20px;
+  }
+
+  .nav-menu-wrapper {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    flex-direction: column;
+    background: var(--white);
+    width: 100%;
+    height: 90vh;
+    gap: 30px;
+    padding-top: 40px;
+    transition: 0.4s ease;
+  }
+
+  .nav-menu-wrapper.active {
+    left: 0;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .nav-actions {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .btn-login,
+  .btn-signup {
+    width: 100%;
+    text-align: center;
+  }
+
+  .mobile-menu-icon {
+    display: block;
+  }
+}

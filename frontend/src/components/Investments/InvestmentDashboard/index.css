@@ -1,0 +1,168 @@
+/* --- MAIN WRAPPER & LAYOUT --- */
+.invest-page-wrapper {
+  background-color: #f0f2f5; /* Light subtle grey for depth */
+  min-height: 100vh;
+  padding-top: 90px; /* Essential offset for the Fixed Navbar */
+  transition: all 0.3s ease;
+}
+
+.invest-main-content {
+  padding: 0 4%; /* Fluid padding for responsiveness */
+  max-width: 1600px; /* Wide-screen dashboard approach */
+  margin: 0 auto;
+}
+
+/* --- HEADER SECTION --- */
+.invest-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 1.5rem;
+}
+
+.invest-title-area h1 {
+  color: #1e293b;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.invest-title-area p {
+  color: #64748b;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+/* --- BRANDED ACTION BUTTON --- */
+.btn-toggle-form {
+  background: #22c55e; /* FinTrackAI Green */
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px 0 rgba(34, 197, 94, 0.35);
+  transition: all 0.3s ease;
+}
+
+.btn-toggle-form:hover {
+  background: #16a34a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.25);
+}
+
+/* --- STATS GRID --- */
+.invest-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+/* --- STAT CARDS --- */
+.inv-stat-card {
+  background: #1e293b; /* Dark Slate Brand Color */
+  color: white;
+  padding: 2.2rem;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -5px rgba(30, 41, 59, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 180px;
+}
+
+.inv-stat-card .label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  opacity: 0.6;
+}
+
+.inv-stat-card .value {
+  font-size: 2.6rem;
+  margin: 12px 0;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+/* --- PROFIT/LOSS SPECIFIC CARD --- */
+.pnl-card.profit {
+  border-top: 8px solid #22c55e; /* Brand Green Accent */
+}
+
+.pnl-card.loss {
+  border-top: 8px solid #ef4444; /* Error Red Accent */
+}
+
+.pnl-card.profit .value {
+  color: #22c55e;
+}
+.pnl-card.loss .value {
+  color: #ef4444;
+}
+
+.pnl-badge {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-weight: 700;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* --- CHART CARD --- */
+.chart-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.chart-wrapper {
+  height: 250px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- TABLE SECTION HEADER --- */
+.list-section h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* --- RESPONSIVE ADAPTATION --- */
+/* Tablets (2 Columns) */
+@media (min-width: 768px) {
+  .invest-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktops (3 Columns: 1:1:1.8 Ratio) */
+@media (min-width: 1200px) {
+  .invest-grid {
+    grid-template-columns: 1fr 1fr 1.8fr;
+  }
+}

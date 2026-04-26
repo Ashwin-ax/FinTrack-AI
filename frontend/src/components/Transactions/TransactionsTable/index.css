@@ -1,0 +1,108 @@
+.table-wrapper {
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.tx-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px; /* Gaps for floating effect */
+}
+
+.tx-table th {
+  padding: 0.75rem 1.5rem;
+  color: #94a3b8;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+.tx-row {
+  background: white;
+  transition: transform 0.2s ease;
+}
+
+.tx-row:hover {
+  transform: scale(1.01);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.tx-table td {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Row Rounding */
+.tx-row td:first-child {
+  border-left: 1px solid #f1f5f9;
+  border-radius: 12px 0 0 12px;
+}
+.tx-row td:last-child {
+  border-right: 1px solid #f1f5f9;
+  border-radius: 0 12px 12px 0;
+}
+
+.category-badge {
+  background: #f1f5f9;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  color: #475569;
+}
+
+.amount-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 800;
+}
+
+.action-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.action-icon.edit:hover {
+  background: #22c55e;
+  color: white;
+}
+.action-icon.delete:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* Mobile Card View (Hiding table on small screens) */
+@media (max-width: 768px) {
+  .tx-table thead {
+    display: none;
+  }
+  .tx-row,
+  .tx-table td {
+    display: block;
+    width: 100%;
+  }
+  .tx-row {
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 1rem;
+  }
+  .tx-table td {
+    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+  }
+  .tx-table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: #94a3b8;
+  }
+}

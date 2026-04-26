@@ -1,0 +1,33 @@
+.portfolio-chart-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Tooltip customization to match FinTrackAI theme */
+.recharts-tooltip-wrapper {
+  outline: none;
+}
+
+.recharts-default-tooltip {
+  background-color: #ffffff !important;
+  border-radius: 10px !important;
+  padding: 10px !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Legend item spacing for mobile tapping */
+.recharts-legend-item {
+  margin-right: 15px !important;
+  margin-bottom: 5px !important;
+}
+
+/* DESKTOP TWEAKS */
+@media (min-width: 768px) {
+  .portfolio-chart-container {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,271 @@
+/* Budget Grid Layout */
+.budget-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+/* Card Styling */
+.budget-item-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.budget-item-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.budget-item-card.border-danger {
+  border-left: 5px solid #ef4444;
+}
+
+/* Header Section */
+.budget-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.category-info h4 {
+  font-size: 1.1rem;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.category-info p {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.spent-amt {
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.limit-amt {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* Progress Bar */
+.progress-track {
+  height: 12px;
+  background: #f1f5f9;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bg-success {
+  background: #10b981;
+}
+.bg-warning {
+  background: #f59e0b;
+}
+.bg-danger {
+  background: #ef4444;
+}
+
+/* Footer Section */
+.budget-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.budget-loading {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.status-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.percent-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.budget-page {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.budget-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding-top: 100px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.budget-main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.title-group h1 {
+  font-size: 2.2rem;
+  color: #0f172a;
+  font-weight: 800;
+}
+
+.title-group p {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.budget-section-title {
+  margin: 40px 0 24px;
+}
+
+.budget-section-title h3 {
+  font-size: 1.25rem;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.title-line {
+  width: 60px;
+  height: 4px;
+  background: #10b981;
+  border-radius: 2px;
+}
+
+.no-budget-state {
+  text-align: center;
+  padding: 80px 20px;
+  background: white;
+  border-radius: 24px;
+  border: 2px dashed #e2e8f0;
+  color: #94a3b8;
+}
+
+.no-budget-state svg {
+  font-size: 4rem;
+  margin-bottom: 16px;
+}
+
+.budget-loading {
+  text-align: center;
+  padding: 100px;
+  font-weight: 600;
+  color: #10b981;
+}
+
+.budget-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.delete-budget-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-budget-btn:hover {
+  background: #fee2e2; /* Light red background */
+  color: #ef4444; /* Bright red icon */
+}
+
+/* Container for the Icon and Info */
+.category-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* The circular icon wrapper */
+.category-icon-wrapper {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  background: #f1f5f9;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-cat-icon {
+  font-size: 1.5rem;
+  color: #64748b;
+}
+
+/* The Delete Badge - Overlapping the icon */
+.delete-budget-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 24px;
+  height: 24px;
+  background: #ef4444;
+  color: white;
+  border: 2px solid white; /* Creates a clean gap between icons */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+/* Show badge on hover */
+.budget-item-card:hover .delete-budget-badge {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.delete-budget-badge:hover {
+  background: #b91c1c;
+  transform: scale(1.2) !important;
+}
+
+/* Refined Header spacing */
+.budget-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Changed from flex-start for better alignment */
+  margin-bottom: 20px;
+}
+
+.amount-info {
+  text-align: right;
+}

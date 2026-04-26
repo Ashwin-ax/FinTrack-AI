@@ -1,0 +1,232 @@
+.main-nav {
+  height: 80px;
+  background: var(--white);
+  display: flex;
+  position: fixed; /* Fixed at the top */
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  border-bottom: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.main-nav-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  box-shadow: 0px 2px 4px 0px #ccf0d0;
+}
+
+.main-nav-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--dark-green);
+  text-decoration: none;
+}
+
+.m-logo-icon {
+  color: var(--primary-green);
+  margin-right: 8px;
+}
+
+.m-text-highlight {
+  color: var(--primary-green);
+}
+
+.main-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  margin-right: 0;
+}
+
+.main-nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.main-nav-links a {
+  text-decoration: none;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 5px 0;
+}
+
+.main-nav-links a:hover,
+.main-nav-links a.active-link {
+  color: var(--primary-green);
+}
+
+/* Active Indicator Animation */
+.main-nav-links a.active-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary-green);
+  border-radius: 10px;
+  animation: slideIn 0.3s ease;
+}
+
+/* Profile Dropdown Section */
+.user-profile-wrapper {
+  position: relative;
+  margin-left: 10px;
+}
+
+.profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 50px;
+  transition: background 0.3s;
+}
+
+.profile-trigger:hover {
+  background: var(--light-green);
+}
+
+.profile-icon {
+  font-size: 2rem;
+  color: var(--dark-green);
+}
+
+.arrow-icon {
+  transition: transform 0.3s ease;
+  color: #64748b;
+}
+
+.arrow-icon.rotate {
+  transform: rotate(180deg);
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  width: 180px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f1f5f9;
+  overflow: hidden;
+  animation: dropdownFade 0.3s ease;
+}
+
+.profile-dropdown a,
+.profile-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  text-align: left;
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 500;
+  font-size: 0.9rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.profile-dropdown a:hover,
+.profile-dropdown button:hover {
+  background: var(--light-green);
+  color: var(--primary-green);
+}
+
+.logout-btn {
+  background-color: #22c55e;
+  color: #ffffff;
+  border: 0;
+  padding: 10px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: darkgreen;
+  color: white;
+  box-shadow: 0 2px 4px 0px green;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Menu */
+@media screen and (max-width: 960px) {
+  .main-nav-container {
+    padding: 0 20px;
+  }
+  .m-mobile-icon {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--dark-green);
+  }
+
+  .main-nav-menu {
+    position: fixed;
+    top: 75px;
+    left: -100%;
+    flex-direction: column;
+    background: var(--white);
+    width: 100%;
+    height: calc(100vh - 75px);
+    gap: 40px;
+    padding-top: 50px;
+    transition: 0.4s ease;
+  }
+
+  .main-nav-menu.active {
+    left: 0;
+  }
+  .main-nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .user-profile-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 961px) {
+  .m-mobile-icon {
+    display: none;
+  }
+}

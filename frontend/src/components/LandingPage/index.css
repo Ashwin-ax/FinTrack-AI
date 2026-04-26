@@ -1,0 +1,79 @@
+/* Import fonts if necessary - Inter is great for Fintech */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --primary-green: #10b981;
+  --dark-green: #064e3b;
+  --light-green: #ecfdf5;
+  --text-main: #1f2937;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth; /* Enables smooth scrolling for nav links */
+}
+
+body {
+  background-color: var(--white);
+  color: var(--text-main);
+  overflow-x: hidden; /* Prevents unwanted horizontal scrolling on mobile */
+}
+
+/* Page Wrapper */
+.landing-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Custom Selection Color (Matching the Green Theme) */
+::selection {
+  background: var(--primary-green);
+  color: white;
+}
+
+/* Standardizing Section Spacing for a professional look */
+section {
+  width: 100%;
+  position: relative;
+}
+
+/* Scrollbar Styling for Chrome/Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-green);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-green);
+}
+
+/* Add this to Navbar/index.css, Hero/index.css, and CTASection/index.css */
+.btn-login,
+.btn-signup,
+.btn-primary-lg,
+.btn-cta-white {
+  text-decoration: none; /* Removes the underline from the Link */
+  display: inline-flex; /* Ensures centering of text/icons inside */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive container adjustments */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem !important; /* Forces responsive scaling for titles */
+  }
+}
