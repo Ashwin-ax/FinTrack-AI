@@ -10,7 +10,10 @@ const transactionRoutes = require("./routes/transactionRoutes"); // 1. Added thi
 dotenv.config();
 const app = express();
 
-const allowedOrigins = ["http://localhost:3000", process.env.FRONTEND_URL];
+const allowedOrigins = [
+  "http://localhost:3000",
+  process.env.FRONTEND_URL,
+].filter(Boolean);
 
 app.use(
   cors({
@@ -18,7 +21,7 @@ app.use(
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
-        callback(new Error("Not allowed by CORS"));
+        callback(new Error("CORS blocked"));
       }
     },
     credentials: true,

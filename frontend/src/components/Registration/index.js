@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Cookies from "js-cookie";
 import {
   HiOutlineMail,
   HiOutlineLockClosed,
@@ -22,7 +22,7 @@ const Registration = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     // Clear error when user starts typing
@@ -38,23 +38,20 @@ const Registration = () => {
 
     setIsLoading(true);
     try {
-      const config = { headers: { "Content-Type": "application/json" } };
-      const { data } = await axios.post(
+      await axios.post(
         `${API_URL}/auth/register`,
         {
           username: formData.username,
           email: formData.email,
           password: formData.password,
         },
-        config,
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true, // 🔥 IMPORTANT
+        },
       );
 
-      // Store token and user data in Cookies for 7 days
-      Cookies.set("token", data.token, { expires: 7 });
-      Cookies.set("userInfo", JSON.stringify(data), { expires: 7 });
-
-      // Redirect to Dashboard (we will create this later)
-      window.location.href = "/dashboard";
+      navigate("/dashboard");
     } catch (error) {
       setErrorMsg(
         error.response && error.response.data.message

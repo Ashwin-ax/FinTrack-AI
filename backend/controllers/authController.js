@@ -15,11 +15,11 @@ exports.registerUser = async (req, res) => {
 
     const user = await User.create({ username, email, password });
     const token = generateToken(user._id);
-
     const isProduction = process.env.NODE_ENV === "production";
 
+    // Set cookie
     res.cookie("token", token, {
-      httpOnly: false,
+      httpOnly: true,
       secure: isProduction,
       sameSite: isProduction ? "None" : "Lax",
     });
@@ -44,12 +44,11 @@ exports.loginUser = async (req, res) => {
     if (user && (await user.matchPassword(password))) {
       const token = generateToken(user._id);
 
-      // 🔥 IMPORTANT: detect environment
       const isProduction = process.env.NODE_ENV === "production";
 
       // Set cookie
       res.cookie("token", token, {
-        httpOnly: false, // using js-cookie on frontend
+        httpOnly: true,
         secure: isProduction,
         sameSite: isProduction ? "None" : "Lax",
       });

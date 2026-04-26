@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import Cookies from "js-cookie";
 import {
   HiOutlineMail,
   HiOutlineLockClosed,
@@ -31,22 +30,14 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      const config = { headers: { "Content-Type": "application/json" } };
       const { data } = await axios.post(
         `${API_URL}/auth/login`,
         { email: formData.email, password: formData.password },
-        config,
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true, // 🔥 REQUIRED
+        },
       );
-
-      // Save login session
-      const isProduction = window.location.hostname !== "localhost";
-
-      Cookies.set("token", data.token, {
-        expires: 7,
-        secure: isProduction,
-        sameSite: isProduction ? "None" : "Lax",
-      });
-      Cookies.set("userInfo", JSON.stringify(data), { expires: 7 });
 
       navigate(from, { replace: true });
     } catch (error) {
